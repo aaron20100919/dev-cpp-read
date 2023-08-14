@@ -11,7 +11,7 @@
 from tkinter import *
 
 root = Tk()
-root.overridredirect(True)
+root.overrideredirect(True)
 
 root.geometry("700x20")
 root.geometry("+%d+%d" % (900, 840))
@@ -29,7 +29,7 @@ text_list = [
 ]
 with open("./xiaoshuo.txt", encoding="utf-8") as f:
     while True:
-        txt = f.read(30)
+        txt = f.read(80)
         if not txt:
             break
         text_list.append(txt)
@@ -61,16 +61,16 @@ def hid(event=None):
 
 
 exit_button = Button(root, text="Exit", command=exit_app)
-exit_button.pack(sid=LEFT)
+exit_button.pack(side=LEFT)
 
 forward_button = Button(root, text="Forward", command=forward_text)
-forward_button.pack(sid=LEFT)
+forward_button.pack(side=LEFT)
 
 back_button = Button(root, text="Back", command=back_text)
-back_button.pack(sid=LEFT)
+back_button.pack(side=LEFT)
 
 clear_button = Button(root, text="Hid", command=hid)
-clear_button.pack(sid=LEFT)
+clear_button.pack(side=LEFT)
 
 root.bind("<KeyPress-;>", exit_app)
 root.bind("<KeyPress-,>", forward_text)
@@ -78,7 +78,7 @@ root.bind("<KeyPress-.>", back_text)
 root.bind("<KeyPress-/>", hid)
 
 label = Label(root, text=text_list[current_index])
-label.pack(sid=LEFT)
+label.pack(side=LEFT)
 
 root.mainloop()
 print(f"current_index = {current_index}")
@@ -90,7 +90,7 @@ print(f"current_index = {current_index}")
 from tkinter import *
 
 root = Tk()
-root.overridredirect(True)
+root.overrideredirect(True)
 
 root.geometry("1200x20")
 root.geometry("+%d+%d" % (720, 1020))
@@ -140,16 +140,16 @@ def hid(event=None):
 
 
 exit_button = Button(root, text="Exit", command=exit_app)
-exit_button.pack(sid=LEFT)
+exit_button.pack(side=LEFT)
 
 forward_button = Button(root, text="Forward", command=forward_text)
-forward_button.pack(sid=LEFT)
+forward_button.pack(side=LEFT)
 
 back_button = Button(root, text="Back", command=back_text)
-back_button.pack(sid=LEFT)
+back_button.pack(side=LEFT)
 
 clear_button = Button(root, text="Hid", command=hid)
-clear_button.pack(sid=LEFT)
+clear_button.pack(side=LEFT)
 
 root.bind("<KeyPress-;>", exit_app)
 root.bind("<KeyPress-,>", forward_text)
@@ -157,7 +157,7 @@ root.bind("<KeyPress-.>", back_text)
 root.bind("<KeyPress-/>", hid)
 
 label = Label(root, text=text_list[current_index])
-label.pack(sid=LEFT)
+label.pack(side=LEFT)
 
 root.mainloop()
 print(f"current_index = {current_index}")
