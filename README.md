@@ -32,7 +32,7 @@ with open("./xiaoshuo.txt", encoding="utf-8") as f:
         txt = f.read(80)
         if not txt:
             break
-        text_list.append(txt)
+        text_list.append(txt.split())
 
 current_index = 0
 
@@ -108,10 +108,10 @@ text_list = [
 ]
 with open("./xiaoshuo.txt", encoding="utf-8") as f:
     while True:
-        txt = f.read(80)
+        txt = f.read(40)
         if not txt:
             break
-        text_list.append(txt)
+        text_list.append(txt.split())
 
 current_index = 0
 
