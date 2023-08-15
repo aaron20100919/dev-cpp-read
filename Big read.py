@@ -22,7 +22,7 @@ with open("./xiaoshuo.txt", encoding="utf-8") as f:
         txt = f.read(80)
         if not txt:
             break
-        text_list.append(txt)
+        text_list.append(txt.split())
 
 current_index = 0
 
