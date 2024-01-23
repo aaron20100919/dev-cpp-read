@@ -1,6 +1,6 @@
-from tkinter import *
+import tkinter as tk
 
-root = Tk()
+root = tk.Tk()
 root.overrideredirect(True)
 
 root.geometry("1200x20")
@@ -22,21 +22,27 @@ with open("./xiaoshuo.txt", encoding="utf-8") as f:
         txt = f.read(80)
         if not txt:
             break
-        text_list.append(txt.split())
+        for text in txt.split():
+            text_list.append(text)
 
 current_index = 0
+tot_index = len(text_list)
 
 
 def forward_text(event=None):
     global current_index
     current_index = (current_index - 1 + len(text_list)) % len(text_list)
-    label.config(text=text_list[current_index])
+    label.config(
+        text=text_list[current_index] + " (%d/%d)" % (current_index, tot_index)
+    )
 
 
 def back_text(event=None):
     global current_index
     current_index = (current_index + 1) % len(text_list)
-    label.config(text=text_list[current_index])
+    label.config(
+        text=text_list[current_index] + " (%d/%d)" % (current_index, tot_index)
+    )
 
 
 def exit_app(event=None):
@@ -50,25 +56,24 @@ def hid(event=None):
         root.attributes("-alpha", 1)
 
 
-exit_button = Button(root, text="Exit", command=exit_app)
-exit_button.pack(side=LEFT)
+exit_button = tk.Button(root, text="Exit", command=exit_app)
+exit_button.pack(side=tk.LEFT)
 
-forward_button = Button(root, text="Forward", command=forward_text)
-forward_button.pack(side=LEFT)
+forward_button = tk.Button(root, text="Forward", command=forward_text)
+forward_button.pack(side=tk.LEFT)
 
-back_button = Button(root, text="Back", command=back_text)
-back_button.pack(side=LEFT)
+back_button = tk.Button(root, text="Back", command=back_text)
+back_button.pack(side=tk.LEFT)
 
-clear_button = Button(root, text="Hid", command=hid)
-clear_button.pack(side=LEFT)
+clear_button = tk.Button(root, text="Hid", command=hid)
+clear_button.pack(side=tk.LEFT)
 
 root.bind("<KeyPress-;>", exit_app)
 root.bind("<KeyPress-,>", forward_text)
 root.bind("<KeyPress-.>", back_text)
 root.bind("<KeyPress-/>", hid)
 
-label = Label(root, text=text_list[current_index])
-label.pack(side=LEFT)
+label = tk.Label(root, text=text_list[current_index])
+label.pack(side=tk.LEFT)
 
 root.mainloop()
-print(f"current_index = {current_index}")
