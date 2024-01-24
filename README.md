@@ -95,6 +95,7 @@ label = tk.Label(
 label.pack(side=tk.LEFT)
 
 root.mainloop()
+
 with open("_read", "w") as f:
     f.write(str(current_index))
 ```
@@ -188,6 +189,7 @@ label = tk.Label(
 label.pack(side=tk.LEFT)
 
 root.mainloop()
+
 with open("_read", "w") as f:
     f.write(str(current_index))
 ```
