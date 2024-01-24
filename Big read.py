@@ -19,13 +19,18 @@ text_list = [
 ]
 with open("./xiaoshuo.txt", encoding="utf-8") as f:
     while True:
-        txt = f.read(80)
+        txt = f.read(60)
         if not txt:
             break
         for text in txt.split():
             text_list.append(text)
 
-current_index = 0
+try:
+    current_index = int(open("_read").read())
+except:
+    with open("_read", "w") as f:
+        f.write("0")
+    current_index = 0
 tot_index = len(text_list)
 
 
@@ -73,7 +78,12 @@ root.bind("<KeyPress-,>", forward_text)
 root.bind("<KeyPress-.>", back_text)
 root.bind("<KeyPress-/>", hid)
 
-label = tk.Label(root, text=text_list[current_index])
+label = tk.Label(
+    root, text=text_list[current_index] + " (%d/%d)" % (current_index, tot_index)
+)
 label.pack(side=tk.LEFT)
 
 root.mainloop()
+
+with open("_read", "w") as f:
+    f.write(str(current_index))
