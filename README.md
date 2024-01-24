@@ -95,7 +95,8 @@ label = tk.Label(
 label.pack(side=tk.LEFT)
 
 root.mainloop()
-
+with open("_read", "w") as f:
+    f.write(str(current_index))
 ```
 
 屏幕大小为 `1920x1080` 的（大屏幕）：
@@ -187,6 +188,8 @@ label = tk.Label(
 label.pack(side=tk.LEFT)
 
 root.mainloop()
+with open("_read", "w") as f:
+    f.write(str(current_index))
 ```
 
 提供一篇文章
