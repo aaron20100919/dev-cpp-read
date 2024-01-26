@@ -33,8 +33,7 @@ with open("./xiaoshuo.txt", encoding="utf-8") as f:
         txt = f.read(60)
         if not txt:
             break
-        for text in txt.split():
-            text_list.append(text)
+        text_list.append(txt.replace("\n", " "))
 
 try:
     current_index = int(open("_read").read())
@@ -124,11 +123,10 @@ text_list = [
 ]
 with open("./xiaoshuo.txt", encoding="utf-8") as f:
     while True:
-        txt = f.read(60)
+        txt = f.read(80)
         if not txt:
             break
-        for text in txt.split():
-            text_list.append(text)
+        text_list.append(txt.replace("\n", " "))
 
 try:
     current_index = int(open("_read").read())
